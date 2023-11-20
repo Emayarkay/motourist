@@ -1,7 +1,5 @@
 class Car < ApplicationRecord
   validates :make, :model, :year, :price, :description, :location, :colour, :capacity, presence: true
-  validates :year, presence: true
-  validates :price, presence: true
   validates :description, length: { minimum: 10 }
   validates :year, numericality: { only_integer: true }
   validates :year, comparison: { greater_than: 1886 }

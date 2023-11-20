@@ -1,0 +1,19 @@
+.logo-container {
+  display: flex;
+}
+
+.logo-text {
+  display: flex;
+
+  h2 {
+  font-family: 'Pacifico', cursive;
+  margin: auto;
+  color: $orange;
+  text-shadow: 1px 1px 0.5px rgb(38, 38, 38);
+  transition: 0.5s;
+
+  &:hover {
+    transform: scale(1.05)
+  }
+  }
+}

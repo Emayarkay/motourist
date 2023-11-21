@@ -9,6 +9,7 @@ class CarsController < ApplicationController
     redirect_to car_path(@car)
     else
     render :new, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -40,4 +41,5 @@ class CarsController < ApplicationController
   def car_params
     params.require(:car).permit(:make, :model, :year, :price, :description, :location, :colour, :capacity)
   end
+
 end

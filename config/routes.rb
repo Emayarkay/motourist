@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :cars do
     resources :bookings, only: :create
   end
-  resources :bookings, only: :destroy
+  resources :bookings, only: %i[destroy show]
 
   resources :users, only: [:destroy] do
     get 'car_listings', on: :member

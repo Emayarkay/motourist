@@ -15,18 +15,8 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: :destroy
 
-  # Defines the root path route ("/")
-
-
-  resources :users, only: [:new, :create, :edit, :update, :destroy] do
-    member do
-      get 'confirm_changes'
-    end
+  resources :users, only: [:destroy] do
+    get :car_listings, on: :member
+    get :profile, on: :collection
   end
-
-  # resources :users, only: [:show] do
-  get 'profile', to: "users#profile"
-  get 'users/:id/car_listings', to: "users#car_listings", as: :car_listings
-  # end
-
 end

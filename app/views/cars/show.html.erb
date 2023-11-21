@@ -1,9 +1,25 @@
-<div class="container_show">
+<div class="container my-5">
 
-  <div class="card_car_show">
+  <div class="d-flex justify-content-evenly">
+
+    <div> card image </div>
+    <div class="card_car_show">
+      <h2><%=@car.year%> <%=@car.model.capitalize%> <%=@car.make%></h2>
+      <p><%=@car.description%></p>
+      <p>Capacity: <%=@car.capacity%></p>
+      <p>Colour: <%=@car.colour.capitalize%></p>
+      <p>Location: <%=@car.location.capitalize%></p>
+      <p>Cost per day: £<%=@car.price%></p>
+    </div>
+
   </div>
 
-  <div>
+  <div class="d-flex justify-content-center mt-5">
+
+    <div>Book now!</div>
+    <%= form_with model: @car do |f| %>
+    <%= f.input :opening_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+    <%end%>
 
   </div>
 

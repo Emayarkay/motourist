@@ -1,13 +1,18 @@
 .banner_home {
-  background-color: cadetblue;
+  background-image: url("courtney-cook-MED-pO6Y7JE-unsplash.jpg");
+  background-size: cover;
   padding: 150px 150px;
+  margin-top: 16px;
   p {
-    font-size: 20px;
+    font-size: 32px;
     color: white;
+    text-shadow: 1px 1px rgb(62, 62, 62);
   }
   h1 {
     color: white;
-    font-size: 32px;
+    font-family: $logo_font;
+    font-size: 72px;
+    text-shadow: 3px 3px rgb(222, 85, 31);
     font-weight: bold;
   }
 }

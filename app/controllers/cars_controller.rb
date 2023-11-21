@@ -26,7 +26,7 @@ class CarsController < ApplicationController
   def destroy
     @car = Car.find(params[:id])
     @car.destroy
-    redirect_to car_path(@car)
+    redirect_to cars_path
   end
 
   def index
@@ -40,7 +40,7 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:cars).permit(:make, :model, :year, :price, :description, :location, :colour, :capacity)
+    params.require(:car).permit(:make, :model, :year, :price, :description, :location, :colour, :capacity)
   end
 
 end

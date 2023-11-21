@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     @cars = @user.cars.includes(:bookings)
   end
 
+  def profile
+    @user = current_user
+  end
+
   private
 
   def find_user

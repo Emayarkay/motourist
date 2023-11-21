@@ -1,0 +1,14 @@
+<h1><%= @user.username %>'s Car Listings</h1>
+<% @cars.each do |car| %>
+  <h2><%= car.name %></h2>
+  <ul>
+    <% car.bookings.each do |booking| %>
+      <li>
+        Booking ID: <%= booking.id %>,
+        Date: <%= booking.date %>,
+        Status: <%= booking.status %>
+        <!-- Display other booking details as needed -->
+      </li>
+    <% end %>
+  </ul>
+<% end %>

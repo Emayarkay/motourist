@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # Other actions...
   def user
-  @user = @user.User
+  @user = User.all
   end
 
   def car_listings

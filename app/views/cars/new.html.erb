@@ -1,2 +1,23 @@
-<h1>Cars#new</h1>
-<p>Find me in app/views/cars/new.html.erb</p>
+
+<div class="container">
+  <h1>Let A Vehicle</h1>
+  <p> Making money from your timeless car has never been easier </p>
+  <div class.banner_home > </div>
+
+   <div class="form-group">
+  <%= simple_form_for @car do |f| %>
+    <%= f.input :model, :label => 'Model' %>
+    <%= f.input :make, :label => 'Make', input_html: {class: "my-custom-input"}, label_html: {class: "my-custom-label"}, wrapper_html: {class: 'my-custom-wrapper'} %>
+     <%= f.input :year, :label => 'Year' %>
+    <%= f.input :price, :label => 'Price Per Day in £' %>
+     <%= f.input :colour, :label => 'Colour' %>
+      <%= f.input :description, :label => 'Tell us a bit about your car' %>
+     <%= f.input :location, :label => 'Where is the car parked?' %>
+    <%= f.input :capacity, label: 'No. of Seats', collection: (1..6).to_a.append("7+"), prompt: "Select capacity" %>
+    <%= f.submit value: 'Add my listing', class: "btn btn-primary" %>
+  <% end %>
+  </div>
+
+  <%= link_to "Return to Available Listings", cars_path %>
+  <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
+</div>

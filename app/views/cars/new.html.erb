@@ -1,19 +1,22 @@
 
-<h1>Let A Vehicle</h1>
-<p> Making money from your timeless vehicle has never been easier </p>
-<p>Find me in app/views/cars/new.html.erb</p>
-<div class.banner_home > </div>
+<div class="container">
+  <h1>Let A Vehicle</h1>
+  <p> Making money from your timeless vehicle has never been easier </p>
+  <p>Find me in app/views/cars/new.html.erb</p>
+  <div class.banner_home > </div>
 
- <div class="form-group">
-<%= simple_form_for @car do |f| %>
-  <%= f.input :model, :label => 'Model' %>
-  <%= f.input :make, :label => 'Make' %>
-   <%= f.input :year, :label => 'Year' %>
-  <%= f.input :price, :label => 'Price in £' %>
-   <%= f.input :colour, :label => 'Colour' %>
-  <%= f.input :capacity, :label => 'No. of Seats' %>
-  <%= f.button :submit, :label => 'Add my listing' %>
-<% end %>
+   <div class="form-group">
+  <%= simple_form_for @car do |f| %>
+    <%= f.input :model, :label => 'Model' %>
+    <%= f.input :make, :label => 'Make', input_html: {class: "my-custom-input"}, label_html: {class: "my-custom-label"}, wrapper_html: {class: 'my-custom-wrapper'} %>
+     <%= f.input :year, :label => 'Year' %>
+    <%= f.input :price, :label => 'Price in £' %>
+     <%= f.input :colour, :label => 'Colour' %>
+    <%= f.input :capacity, label: 'No. of Seats', collection: (1..7).to_a.append("8+"), prompt: "Select capacity" %>
+    <%= f.submit value: 'Add my listing', class: "btn btn-primary" %>
+  <% end %>
+  </div>
+
+  <%= link_to "Return to Available Listings", cars_path %>
+  <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
 </div>
-
-<%= link_to "Return to Available Listings", cars_path %>

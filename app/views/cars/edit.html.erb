@@ -1,4 +1,18 @@
 <div class="container-edit">
-  <h1>Cars#edit</h1>
+  <h1>Update Information</h1>
+ <div class="form-group">
+  <%= simple_form_for @car do |f| %>
+    <%= f.input :model, :label => 'Model' %>
+    <%= f.input :make, :label => 'Make', input_html: {class: "my-custom-input"}, label_html: {class: "my-custom-label"}, wrapper_html: {class: 'my-custom-wrapper'} %>
+     <%= f.input :year, :label => 'Year' %>
+    <%= f.input :price, :label => 'Price Per Day in £' %>
+     <%= f.input :colour, :label => 'Colour' %>
+      <%= f.input :description, :label => 'Tell us a bit about your car' %>
+     <%= f.input :location, :label => 'Where is the car parked?' %>
+    <%= f.input :capacity, label: 'No. of Seats', collection: (1..6).to_a.append("7+"), prompt: "Select capacity" %>
+    <%= f.submit value: 'Add my listing', class: "btn btn-primary" %>
+  <% end %>
+  </div>
 
+  <%= link_to "Return to Available Listings", cars_path %>
 </div>

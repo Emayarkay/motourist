@@ -24,8 +24,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:show] do
-    get 'car_listings', on: :member
-  end
+  # resources :users, only: [:show] do
+  get 'users/:id', to: "users#show", as: :profile
+  get 'users/:id/car_listings', to: "users#car_listings", as: :car_listings
+  # end
 
 end

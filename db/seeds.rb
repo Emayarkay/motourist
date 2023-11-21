@@ -11,14 +11,24 @@
 require 'faker'
 
 Car.destroy_all
+User.destroy_all
 puts "Creating cars..."
 
+user = User.create email: "test@gmail.com", password: "123456"
 
 15.times do |car|
-  cars = {make: Faker::Vehicle.make, model: Faker::Vehicle.model, year: Faker::Vehicle.year, price: Faker::Commerce.price, description: Faker::Vehicle.standard_specs.join(", "), colour: Faker::Vehicle.color , capacity: Faker::Vehicle.version, location:Faker::Address.city}
-  car = Car.new(cars)
-  car.user_id = 1
-  car.save
+  cars = {
+    make: Faker::Vehicle.make,
+    model: Faker::Vehicle.model,
+    year: Faker::Vehicle.year,
+    price: Faker::Commerce.price,
+    description: Faker::Vehicle.standard_specs.join(", "),
+    colour: Faker::Vehicle.color ,
+    capacity: rand(1..6),
+    location:Faker::Address.city,
+    user: user
+  }
+  car = Car.create!(cars)
   puts "Created #{car.make}"
 end
 

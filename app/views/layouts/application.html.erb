@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital@1&family=Tourney:wght@200&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital@1&family=Scope+One&family=Tourney:wght@200&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
@@ -39,10 +41,10 @@
               <li class="nav-item dropdown">
                 <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <%= link_to "Profile", profile_path(current_user), class: "dropdown-item" %>
+                  <%= link_to "Profile", profile_users_path, class: "dropdown-item" %>
                   <%= link_to "Home", cars_path, class: "dropdown-item" %>
-                  <%= link_to "New Listing", "/cars/new", class: "dropdown-item" %>
-                  <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+                  <%= link_to "New Listing", new_car_path, class: "dropdown-item" %>
+                  <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete } %>
                 </div>
               </li>
             <% else %>

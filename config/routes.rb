@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :bookings, only: %i[destroy show]
 
   resources :users, only: [:destroy] do
-    get 'car_listings', on: :member
+    get :car_listings, on: :member
     get :profile, on: :collection
   end
 end

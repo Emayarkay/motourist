@@ -1,4 +1,6 @@
 class Car < ApplicationRecord
+  has_many :bookings, dependent: :destroy
+
   validates :make, :model, :year, :price, :description, :location, :colour, :capacity, presence: true
   validates :description, length: { minimum: 10 }
   validates :year, numericality: { only_integer: true }

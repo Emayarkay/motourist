@@ -21,14 +21,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
-
-  resources :users, only: [:new, :create, :edit, :update, :destroy] do
-    member do
-      get 'confirm_changes'
-    end
-  end
-
-  resources :users, only: [:show] do
+resources :users, only: [:show] do
     get 'car_listings', on: :member
   end
 

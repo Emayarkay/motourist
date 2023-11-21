@@ -1,8 +1,20 @@
-<!-- app/views/users/show.html.erb -->
-<!-- Display user details -->
-
 <div class="profile-container">
-  <h1>Current User</h1>
+   <div>
+    <h1>Welcome <%=current_user.email%></h1>
 
-  <%= link_to "My Cars available to rent", car_listings_path(current_user) %>
+    <div class=container_profile_cars>
+      <h3>My cars available to rent</h3>
+
+      <% @user.cars.each do |car| %>
+      <li> <%=car.model%> </li>
+      <% end %>
+  </div>
+
+  <div>
+    </div>
+    <div class=container_profile_cars>
+      <h3>Cars I've rented</h3>
+    </div>
+  </div>
+
 </div>

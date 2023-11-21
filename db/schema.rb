@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_20_173023) do
     t.index ["car_id"], name: "index_bookings_on_car_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
-
+  
   create_table "cars", force: :cascade do |t|
     t.string "model"
     t.string "make"

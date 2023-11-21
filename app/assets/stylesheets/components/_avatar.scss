@@ -1,6 +1,14 @@
 .avatar {
   width: 40px;
   border-radius: 50%;
+  box-shadow: 1px 1px 0.5px rgb(38, 38, 38);
+  border: black 1px solid;
+  cursor: pointer;
+  transition: 0.5s;
+
+  &:hover {
+    transform: scale(1.05)
+  }
 }
 .avatar-large {
   width: 56px;

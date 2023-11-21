@@ -1,2 +1,19 @@
-<h1>Cars#new</h1>
+
+<h1>Let A Vehicle</h1>
+<p> Making money from your timeless vehicle has never been easier </p>
 <p>Find me in app/views/cars/new.html.erb</p>
+<div class.banner_home > </div>
+
+ <div class="form-group">
+<%= simple_form_for @car do |f| %>
+  <%= f.input :model, :label => 'Model' %>
+  <%= f.input :make, :label => 'Make' %>
+   <%= f.input :year, :label => 'Year' %>
+  <%= f.input :price, :label => 'Price in £' %>
+   <%= f.input :colour, :label => 'Colour' %>
+  <%= f.input :capacity, :label => 'No. of Seats' %>
+  <%= f.button :submit, :label => 'Add my listing' %>
+<% end %>
+</div>
+
+<%= link_to "Return to Available Listings", cars_path %>

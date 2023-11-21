@@ -7,5 +7,5 @@ class Car < ApplicationRecord
   validates :year, comparison: { greater_than: 1886 }
   validates :year, comparison: { less_than: 2024 }
 
-  # belongs_to :user
+  belongs_to :user
 end

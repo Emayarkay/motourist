@@ -19,7 +19,6 @@ class CarsController < ApplicationController
     if @car.save
       redirect_to car_path(@car)
     else
-      raise
       render :edit, status: :unprocessable_entity
     end
   end

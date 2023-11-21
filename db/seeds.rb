@@ -15,7 +15,7 @@ puts "Creating cars..."
 
 
 15.times do |car|
-  cars = {make: Faker::Vehicle.make, model: Faker::Vehicle.model, year: Faker::Vehicle.year, price: Faker::Commerce.price, description: Faker::Vehicle.standard_specs.join(", "), colour: Faker::Vehicle.color , capacity: Faker::Vehicle.version, location:Faker::Address.city}
+  cars = {make: Faker::Vehicle.make, model: Faker::Vehicle.model, year: Faker::Vehicle.year, price: Faker::Commerce.price, description: Faker::Vehicle.standard_specs.join(", "), colour: Faker::Vehicle.color , capacity: rand(1..6), location:Faker::Address.city}
   car = Car.create!(cars)
   puts "Created #{car.make}"
 end

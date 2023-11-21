@@ -31,6 +31,10 @@ class UsersController < ApplicationController
   # Fetches the user to be edited
   end
 
+  def profile
+    @user = current_user
+  end
+
   def update
     if @user.update(user_params)
       @user.update(profile_changes_confirmed: false) # Set changes as unconfirmed

@@ -1,0 +1,15 @@
+<div class="profile-container">
+  <h1>Welcome <%=current_user.email%></h1>
+
+  <div>
+    <h3>My cars available to rent</h3>
+
+    <% @user.cars.all.each do |car| %>
+    <li> <%=car%> </li>
+    <% end %>
+
+  </div>
+  <div>
+    <h3>Cars I've rented</h3>
+  </div>
+</div>

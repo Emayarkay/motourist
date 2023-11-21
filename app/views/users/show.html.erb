@@ -1,4 +1,8 @@
 <!-- app/views/users/show.html.erb -->
-<h1>My Cars</h1>
 <!-- Display user details -->
-<%= link_to "My Car Listings", car_listings_user_path(@user) %>
+
+<div class="profile-container">
+  <h1>Current User</h1>
+
+  <%= link_to "My Cars available to rent", car_listings_path(current_user) %>
+</div>

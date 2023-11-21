@@ -24,7 +24,7 @@ user = User.create email: "test@gmail.com", password: "123456"
     price: Faker::Commerce.price,
     description: Faker::Vehicle.standard_specs.join(", "),
     colour: Faker::Vehicle.color ,
-    capacity: Faker::Vehicle.version,
+    capacity: rand(1..6),
     location:Faker::Address.city,
     user: user
   }

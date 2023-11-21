@@ -3,5 +3,5 @@ class Car < ApplicationRecord
   validates :description, length: { minimum: 10 }
   validates :year, numericality: { only_integer: true }
   validates :year, comparison: { greater_than: 1886 }
-  validates :year, comparison: { less_than: 2023 }
+  validates :year, comparison: { less_than: 2024 }
 end

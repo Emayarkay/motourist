@@ -11,7 +11,6 @@
       <div class="card_car">
         <div>Car_Image</div>
         <h2><%=car.year%> <%=car.model.capitalize%> <%=car.make%></h2>
-        <p><%=car.description%></p>
         <%= link_to "View Details", car_path(car), { class: "btn btn-outline-primary" } %>
       </div>
     <% end %>

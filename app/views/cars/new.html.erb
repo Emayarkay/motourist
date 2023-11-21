@@ -11,7 +11,7 @@
      <%= f.input :year, :label => 'Year' %>
     <%= f.input :price, :label => 'Price in £' %>
      <%= f.input :colour, :label => 'Colour' %>
-    <%= f.input :capacity, label: 'No. of Seats', collection: (1..7).to_a.append("8+"), prompt: "Select capacity" %>
+    <%= f.input :capacity, label: 'No. of Seats', collection: (1..6).to_a.append("7+"), prompt: "Select capacity" %>
     <%= f.submit value: 'Add my listing', class: "btn btn-primary" %>
   <% end %>
   </div>

@@ -1,23 +1,28 @@
-<div class="container_profile">
+<div class="profile-container">
   <div>
-    <h1>Welcome <%=current_user.email%></h1>
-  </div>
+    <h1>Welcome <%= current_user.email %></h1>
 
-  <div class=container_profile_cars>
-
-    <div class="card_cars_offered">
+    <div class="container_profile_cars">
       <h3>My cars available to rent</h3>
-      <% @user.cars.each do |car| %>
-        <li> <%=car.model%> </li>
-     <% end %>
+      <ul>
+        <% current_user.cars.each do |car| %>
+          <li><%= car.model %></li>
+          <% if @user_owner == true %>
+            <%= link_to "Edit this car", edit_car_path(car) %>
+          <% end %>
+        <% end %>
+      </ul>
     </div>
 
-    <div class=card_cars_rented>
+    <div class="container_profile_cars">
       <h3>Cars I've rented</h3>
-      <% @user.cars.each do |car| %>
-        <li> <%=car.model%> </li>
-      <% end %>
+      <ul>
+        <% current_user.bookings.each do |booking| %>
+          <li>
+            <a href="/cars/<%= booking.car.id %>"><%= booking.car.model %></a>
+          </li>
+        <% end %>
+      </ul>
     </div>
-
   </div>
 </div>

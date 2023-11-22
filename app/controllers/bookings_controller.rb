@@ -23,6 +23,19 @@ class BookingsController < ApplicationController
     redirect_to car_path(@booking.car)
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to @booking, notice: 'Booking was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   private
 
   def booking_params

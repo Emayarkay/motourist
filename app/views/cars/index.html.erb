@@ -9,7 +9,13 @@
 
     <% @cars.each do |car|%>
       <div class="card_car">
-        <div class="card_image"><%= cl_image_tag car.photo.key, crop: :fill, class: "index-card-image" %></div>
+        <div class="card_image">
+          <% if car.photo.attached? %>
+            <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill, class: "index-card-image" %>
+          <% else %>
+            <%= image_tag "placeholder.png", height: 300, width: 400 %>
+          <% end %>
+        </div>
         <div class="card_car_details">
           <div>
             <h3> <%=car.model.capitalize%> <%=car.make%> </h3>

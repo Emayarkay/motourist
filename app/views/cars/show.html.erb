@@ -16,7 +16,7 @@
 
   </div>
 
-  <% if @car.user == current_user %>
+  <% if @car.user == @user_owner %>
    <%= link_to "Edit this car", edit_car_path(@car) %>
   <% end %>
 

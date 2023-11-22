@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
+    @user_owner = can_edit_booking?(@user) # Pass the user to check ownership
   end
 
   private
@@ -20,6 +21,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def can_edit_booking?(user)
+    # Assuming a user can edit their bookings, checking if they have any future bookings
+    user.bookings.exists?
+  end
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :other_attributes)

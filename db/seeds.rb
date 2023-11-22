@@ -16,20 +16,21 @@ puts "Creating cars..."
 
 user = User.create email: "test@gmail.com", password: "123456"
 
-15.times do |car|
-  cars = {
-    make: Faker::Vehicle.make,
-    model: Faker::Vehicle.model,
-    year: Faker::Vehicle.year,
-    price: Faker::Commerce.price,
-    description: Faker::Vehicle.standard_specs.join(", "),
-    colour: Faker::Vehicle.color ,
-    capacity: rand(1..6),
-    location:Faker::Address.city,
-    user: user
-  }
-  car = Car.create!(cars)
-  puts "Created #{car.make}"
-end
+car1 = Car.create!(
+  make: 'Austin',
+  model: 'Mini',
+  year: 1979,
+  price: 120,
+  description: "The vehicle had just been fully restored by its Mini enthusiast long-term owner when it was purchased by our vendor in 2021 Finished in Old English White with a black roof, very 1960s Mini-Cooper, it's fitted with the, now impossible to find, tubular tilt framework New interior throughout including black vinyl seats, red dash, door cards and carpets.",
+  colour: 'White',
+  capacity: 2,
+  location: Faker::Address.city,
+  user: user
+)
+car1.image.attach(
+  io: File.open(File.join(Rails.root, 'app/assets/images/austin-mini.jpg')),
+  filename: 'austin-mini.jpg'
+)
+puts "Created #{car1.make}"
 
 puts "Finished!"

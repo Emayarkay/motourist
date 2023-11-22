@@ -3,7 +3,7 @@
   <div class="d-flex justify-content-evenly">
 
     <div>
-    <p>card image</p>
+    <%= @car.image %>
     </div>
     <div class="card_car_show">
       <h2><%=@car.year%> <%=@car.model.capitalize%> <%=@car.make%></h2>
@@ -11,7 +11,7 @@
       <p>Capacity: <%= @car.capacity %> <i class="fa-solid fa-user"></i></p>
       <p>Colour: <%=@car.colour.capitalize%></p>
       <p>Location: <%=@car.location.capitalize%></p>
-      <p>Cost per day: £<%=@car.price%></p>
+      <p>Rental Cost: £<%=@car.price%>0 per day</p>
     </div>
 
   </div>

@@ -2,7 +2,11 @@
 
   <div class="card_car_show">
     <div class="card_show_image">
-       <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
+      <% if @car.photo.attached? %>
+        <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <%= image_tag "placeholder.png", height: 300, width: 400 %>
+      <% end %>
     </div>
 
     <div class="card_show_details">

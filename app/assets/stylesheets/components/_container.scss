@@ -1,11 +1,23 @@
 .container_cards {
   width: 100vw;
   height: auto;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .container_show {
-width: 100vw;
-height: auto;
+  width: 100vw;
+  height: auto;
+  padding: 32px;
+}
+
+.container_profile {
+  width: 100vw;
+  height: auto;
+  padding: 32px;
+}
+
+.container_profile_cars {
+  display: flex;
+  justify-content: space-around;
 }

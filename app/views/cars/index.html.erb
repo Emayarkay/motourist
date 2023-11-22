@@ -9,8 +9,15 @@
 
     <% @cars.each do |car|%>
       <div class="card_car">
-        <div>Car_Image</div>
-        <h2><%=car.year%> <%=car.model.capitalize%> <%=car.make%></h2>
+        <div class="card_image"></div>
+        <div class="card_car_details">
+          <div>
+            <h2> <%=car.model.capitalize%> <%=car.make%> </h2>
+          </div>
+          <div>
+            <h3><%=car.year%></h3>
+          </div>
+        </div>
         <%= link_to "View Details", car_path(car), { class: "btn btn-outline-primary" } %>
       </div>
     <% end %>

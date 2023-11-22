@@ -1,5 +1,6 @@
 class Car < ApplicationRecord
   has_many :bookings, dependent: :destroy
+  has_one_attached :photo
 
   validates :make, :model, :year, :price, :description, :location, :colour, :capacity, presence: true
   validates :description, length: { minimum: 10 }

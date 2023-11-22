@@ -1,36 +1,53 @@
-<div class="container my-5">
+<div class="container_show">
 
-  <div class="d-flex justify-content-evenly">
+  <div class="card_car_show">
 
-    <div>
-    <p>card image</p>
+    <div class="card_show_image">
     </div>
-    <div class="card_car_show">
-      <h2><%=@car.year%> <%=@car.model.capitalize%> <%=@car.make%></h2>
-      <p><%=@car.description%></p>
-      <p>Capacity: <%= @car.capacity %> <i class="fa-solid fa-user"></i></p>
-      <p>Colour: <%=@car.colour.capitalize%></p>
-      <p>Location: <%=@car.location.capitalize%></p>
-      <p>Cost per day: £<%=@car.price%></p>
+
+    <div class="card_show_details">
+      <h1> <%=@car.make%> <%=@car.model.capitalize%> <%=@car.year%> </h1>
+      <p class="show_p">Details</p>
+      <p> <%=@car.description%> </p>
+      <br />
+      <p class="show_p">Capacity</p>
+      <p> <%= @car.capacity %> <i class="fa-solid fa-user"></i></p>
+      <br />
+      <p class="show_p">Colour</p>
+      <p> <%=@car.colour.capitalize%> </p>
+      <br />
+      <p class="show_p">Locaton</p>
+      <p> <%=@car.location.capitalize%> </p>
+      <br />
+      <p class="show_p">Cost per day</p>
+      <p>£<%=@car.price%></p>
     </div>
 
   </div>
 
-  <% if @car.user == current_user %>
-   <%= link_to "Edit this car", edit_car_path(@car) %>
-  <% end %>
 
-  <% if current_user %>
-  <div class="d-flex justify-content-evenly mt-5">
+    <% if current_user %>
+  <div class="container_show_book">
     <div>
-    <h2>Book now!</h2>
+      <h2>Book now!</h2>
     </div>
     <div>
       <%= simple_form_for([@car, @booking]) do |f| %>
-      <%= f.input :start_date, label: "Dates", as: :string, input_html: { data: { controller: "datepicker" } } %>
-      <%= f.submit %>
-    <%end%>
+        <%= f.input :start_date, label: "Dates", as: :string, input_html: { data: { controller: "datepicker" } } %>
+        <%= f.submit %>
+      <% end %>
+    </div>
   </div>
+
+
+
+
+<div>
+  <% if @car.user == current_user %>
+   <%= link_to "Edit this car", edit_car_path(@car) %>
+  <% end %>
+</div>
+
   </div>
   <% else %>
     <div class="d-flex justify-content-evenly mt-5">
@@ -41,5 +58,7 @@
   <% end %>
 
   <%= link_to "Back", cars_path, { class: "d-flex justify-content-center my-5"} %>
+  </div>
+</div>
 
 </div>

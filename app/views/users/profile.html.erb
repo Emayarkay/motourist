@@ -1,20 +1,23 @@
-<div class="profile-container">
-   <div>
-    <h1>Welcome <%=current_user.email%></h1>
-
-    <div class=container_profile_cars>
-      <h3>My cars available to rent</h3>
-
-      <% @user.cars.each do |car| %>
-      <li> <%=car.model%> </li>
-      <% end %>
-  </div>
-
+<div class="container_profile">
   <div>
-    </div>
-    <div class=container_profile_cars>
-      <h3>Cars I've rented</h3>
-    </div>
+    <h1>Welcome <%=current_user.email%></h1>
   </div>
 
+  <div class=container_profile_cars>
+
+    <div class="card_cars_offered">
+      <h3>My cars available to rent</h3>
+      <% @user.cars.each do |car| %>
+        <li> <%=car.model%> </li>
+     <% end %>
+    </div>
+
+    <div class=card_cars_rented>
+      <h3>Cars I've rented</h3>
+      <% @user.cars.each do |car| %>
+        <li> <%=car.model%> </li>
+      <% end %>
+    </div>
+
+  </div>
 </div>

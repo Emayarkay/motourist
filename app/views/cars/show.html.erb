@@ -3,7 +3,7 @@
   <div class="d-flex justify-content-evenly">
 
     <div>
-    <%= @car.image %>
+    <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
     </div>
     <div class="card_car_show">
       <h2><%=@car.year%> <%=@car.model.capitalize%> <%=@car.make%></h2>

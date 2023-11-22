@@ -1,20 +1,23 @@
-<div class="profile-container">
+<div class="container_profile">
   <div>
     <h1>Welcome <%= current_user.email %></h1>
+  </div>
 
     <div class="container_profile_cars">
-      <h3>My cars available to rent</h3>
-      <ul>
-        <% current_user.cars.each do |car| %>
-          <li><%= car.model %></li>
-          <% if @user_owner == true %>
-            <%= link_to "Edit this car", edit_car_path(car) %>
+
+      <div class="card_cars_offered">
+        <h3>My cars available to rent</h3>
+        <ul>
+          <% current_user.cars.each do |car| %>
+            <li><%= car.model %></li>
+            <% if @user_owner == true %>
+              <%= link_to "Edit this car", edit_car_path(car) %>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
-    </div>
+        </ul>
+      </div>
 
-    <div class="container_profile_cars">
+    <div class="card_cars_rented">
       <h3>Cars I've rented</h3>
       <ul>
         <% current_user.bookings.each do |booking| %>
@@ -24,5 +27,5 @@
         <% end %>
       </ul>
     </div>
-  </div>
+    </div>
 </div>

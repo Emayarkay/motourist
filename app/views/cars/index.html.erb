@@ -7,20 +7,20 @@
 
   <div class="container_cards">
 
-    <div class="card_car">
-      <div>Car Make & Model</div>
-      <div>Car_Image</div>
-      <div>Price</div>
-      <div>View More Details</div>
-      <div>BOOK ME</div>
-    </div>
-    <div class="card_car">
-      <div>Car Make & Model</div>
-      <div>Car_Image</div>
-      <div>Price</div>
-      <div>View More Details</div>
-      <div>BOOK ME</div>
-    </div>
+    <% @cars.each do |car|%>
+      <div class="card_car">
+        <div class="card_image"><%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill %></div>
+        <div class="card_car_details">
+          <div>
+            <h2> <%=car.model.capitalize%> <%=car.make%> </h2>
+          </div>
+          <div>
+            <h3><%=car.year%></h3>
+          </div>
+        </div>
+        <%= link_to "View Details", car_path(car), { class: "btn btn-outline-primary" } %>
+      </div>
+    <% end %>
 
   </div>
 

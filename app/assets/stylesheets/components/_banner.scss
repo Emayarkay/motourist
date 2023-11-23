@@ -1,7 +1,7 @@
 .banner_home {
   width: 100%;
   height: 400px;
-  background-image: url("courtney-cook-MED-pO6Y7JE-unsplash.jpg");
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), $licorice), url("courtney-cook-MED-pO6Y7JE-unsplash.jpg");
   background-size: cover;
   padding: 150px 150px;
   p {

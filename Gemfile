@@ -6,6 +6,8 @@ gem 'faker'
 
 gem "geocoder"
 
+gem "pg_search"
+
 gem "cloudinary"
 gem "dotenv-rails"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

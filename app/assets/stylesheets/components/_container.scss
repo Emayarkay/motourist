@@ -1,8 +1,22 @@
-.container_cards {
-  width: 100vw;
+
+.container_index {
   height: auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  display: flex;
+}
+
+.container_cards {
+  width: 60%;
+  height: auto;
+  overflow: scroll;
+}
+
+.container_map {
+  width: 40%;
+  height: 724px;
+  margin: 16px;
+  position: sticky;
+  top: 86px;
 }
 
 .container_show {
@@ -20,4 +34,10 @@
 .container_profile_cars {
   display: flex;
   justify-content: space-around;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  background-color: cadetblue;
 }

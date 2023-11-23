@@ -1,9 +1,28 @@
 <div class="container">
 
-<h1>Congratulations! You're booking is confirmed! </h1>
+  <h1>Congratulations! You're booking is confirmed! </h1>
 
-<%= link_to "View all my bookings", profile_users_path %>
+  <div>
+    <%= cl_image_tag @booking.car.photo.key, height: 300, width: 400, crop: :fill %>
+  </div>
+  <p>You have booked: <%= @booking.car.make%> <%=@booking.car.model%></p>
+  <p>From <%=@booking.start_date.strftime("%B %d, %Y")%> to <%=@booking.end_date.strftime("%B %d, %Y")%></p>
+  <p> <%= (@booking.end_date - @booking.start_date).to_i %> day<% if (@booking.end_date - @booking.start_date).to_i > 1 %>s<% end %> at <%=number_to_currency(@booking.car.price, unit: "£")%> a day</p>
+  <p>Total cost: <%=number_to_currency(@booking.car.price * (@booking.end_date - @booking.start_date).to_i, unit: "£")%></p>
 
-<%= link_to "Back to listings", cars_path %>
 
+  <div>
+    <%= link_to "Edit your booking", profile_users_path %>
+    <%= link_to "Cancel your booking", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to cancel your booking?'} %>
+  </div>
+
+  <div>
+
+  </div>
+
+
+  <div>
+    <%= link_to "View all my bookings", profile_users_path %>
+    <%= link_to "Back to listings", cars_path %>
+  </div>
 </div>

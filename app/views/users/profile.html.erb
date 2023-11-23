@@ -1,5 +1,5 @@
 <div class="container_profile">
-  <div>
+  <div class =>
     <h1>Welcome <%= current_user.email %></h1>
   </div>
 
@@ -7,25 +7,30 @@
 
       <div class="card_cars_offered">
         <h3>My cars available to rent</h3>
-        <ul>
+        <div class="d-flex p-2 justify-content-between align-items-center">
           <% current_user.cars.each do |car| %>
-            <li><%= car.model %></li>
+            <h5><%= car.model %></h5>
             <% if @user_owner == true %>
-              <%= link_to "Edit this car", edit_car_path(car) %>
+            <div>
+              <%= link_to "✍️", edit_car_path(car), class: "text-decoration-none" %>
+              <%= link_to "❌", car_path(car), class: "text-decoration-none", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
+            </div>
             <% end %>
           <% end %>
-        </ul>
+        </div>
       </div>
 
     <div class="card_cars_rented">
       <h3>Cars I've rented</h3>
-      <ul>
+      <div class="d-flex p-2 justify-content-between align-items-center">
         <% current_user.bookings.each do |booking| %>
-          <li>
-            <%= link_to "#{booking.car.make} #{booking.car.model}", booking_path(booking) %>
-          </li>
+        <%= link_to booking.car.model, booking_path(booking)%>
+        <div>
+          <%= link_to "✍️", edit_car_path(booking), class: "text-decoration-none" %>
+          <%= link_to "❌", edit_booking_path(booking), class: "text-decoration-none", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
+        </div>
         <% end %>
-      </ul>
     </div>
     </div>
+</div>
 </div>

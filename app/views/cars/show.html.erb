@@ -21,7 +21,7 @@
       <p> <%=@car.colour.titleize%> </p>
       <br />      
       <p class="show_p">Location</p>
-      <p> <%=@car.location.capitalize%> </p>
+      <p> <%=@car.location.titleize%> </p>
       <br />
       <p class="show_p">Cost</p>
       <p><%=number_to_currency(@car.price, unit: "£")%> per day</p>

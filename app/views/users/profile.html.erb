@@ -22,7 +22,7 @@
       <ul>
         <% current_user.bookings.each do |booking| %>
           <li>
-            <a href="/cars/<%= booking.car.id %>"><%= booking.car.model %></a>
+            <%= link_to "#{booking.car.make} #{booking.car.model}", booking_path(booking) %>
           </li>
         <% end %>
       </ul>

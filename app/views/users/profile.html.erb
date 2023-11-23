@@ -1,6 +1,6 @@
 <div class="container_profile user_profile_background_image p-6">
   <div>
-    <h1 class="profile-page-title">Welcome <%= current_user.email %></h1>
+    <h1 class="profile-page-title">Welcome <%= current_user.first_name%></h1>
   </div>
 
     <div class="container_profile_cars">
@@ -12,6 +12,7 @@
             <h5><%= car.model %></h5>
             <% if @user_owner == true %>
             <div>
+              <%= link_to "🚗", car_path(car), class: "text-decoration-none" %>
               <%= link_to "✍️", edit_car_path(car), class: "text-decoration-none" %>
               <%= link_to "❌", car_path(car), class: "text-decoration-none", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this listing?" } %>
             </div>
@@ -26,6 +27,7 @@
         <% current_user.bookings.each do |booking| %>
         <h5><%= booking.car.model %></h5>
         <div>
+          <%= link_to "🚗", car_path(booking.car), class: "text-decoration-none" %>
           <%= link_to "🔍", booking_path(booking), class: "text-decoration-none"%>
           <%= link_to "❌", booking_path(booking), class: "text-decoration-none", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?" } %>
         </div>

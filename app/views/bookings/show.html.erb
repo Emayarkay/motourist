@@ -6,9 +6,14 @@
     <%= cl_image_tag @booking.car.photo.key, height: 300, width: 400, crop: :fill %>
   </div>
   <p>You have booked: <%= @booking.car.make%> <%=@booking.car.model%></p>
+  <% if @booking.start_date == @booking.end_date %>
+  <p>On <%=@booking.start_date.strftime("%B %d, %Y")%></p>
+  <% else %>
   <p>From <%=@booking.start_date.strftime("%B %d, %Y")%> to <%=@booking.end_date.strftime("%B %d, %Y")%></p>
-  <p> <%= (@booking.end_date - @booking.start_date).to_i %> day<% if (@booking.end_date - @booking.start_date).to_i > 1 %>s<% end %> at <%=number_to_currency(@booking.car.price, unit: "£")%> a day</p>
-  <p>Total cost: <%=number_to_currency(@booking.car.price * (@booking.end_date - @booking.start_date).to_i, unit: "£")%></p>
+  <% end %>
+  <% days = (@booking.end_date - @booking.start_date).to_i + 1 %>
+  <p> <%= (days).to_i %> day<% if (days).to_i > 1 %>s<% end %> at <%=number_to_currency(@booking.car.price, unit: "£")%> a day</p>
+  <p>Total cost: <%=number_to_currency(@booking.car.price * (days).to_i, unit: "£")%></p>
 
 
   <div>
@@ -16,8 +21,14 @@
     <%= link_to "Cancel your booking", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to cancel your booking?'} %>
   </div>
 
-  <div>
-
+  <div data-controller="toggle">
+    <button class="btn btn-outline-primary mb-3" data-toggle-target="button" data-action="click->toggle#fire">Edit booking</button>
+      <div data-toggle-target="togglableElement" class="d-none">
+        <%= simple_form_for(@booking) do |f| %>
+        <%= f.input :start_date, label: "Dates", as: :string, input_html: { data: { controller: "datepicker" } } %>
+        <%= f.submit %>
+        <% end %>
+      </div>
   </div>
 
 

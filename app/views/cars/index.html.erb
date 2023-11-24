@@ -24,26 +24,27 @@
         <% end %>
       </div>
 
-      <% @cars.each do |car|%>
+      <% @cars.each_with_index do |car, i|%>
 
         <%= link_to car_path(car) do %>
           <div class="card_car">
             <div class="card_image">
               <% if car.photo.attached? %>
                 <% if car.photo.count > 1 %>
-                  <div id="carouselExample" class="carousel slide">
+                  <div id="carouselExample<%= i%>" class="carousel slide">
                     <div class="carousel-inner">
-                      <% car.photo.each do |photo_attachment| %>
-                        <div class="carousel-item active">
+                      <% car.photo.each_with_index do |photo_attachment, pi| %>
+                      <% active = pi == 0 ? 'active' : '' %>
+                        <div class="carousel-item <%= active %>">
                           <%= cl_image_tag photo_attachment.key, class: 'd-block w-100' %>
                         </div>
                       <% end %>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample<%= i%>" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample<%= i%>" data-bs-slide="next">
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Next</span>
                     </button>
@@ -79,6 +80,5 @@
   </div>
 
 </div>
-  <%= javascript_include_tag 'car_image_cycling' %>
   </body>
 </html>

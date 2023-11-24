@@ -28,6 +28,7 @@ car1 = Car.new(
   user: user
 )
 car1.photo.attach(io: File.open('app/assets/images/austin-mini.jpg'), filename: "austin-mini.jpg", content_type: "image/jpg")
+
 car1.save!
 
 puts "Created #{car1.make}"

@@ -4,7 +4,7 @@ class Car < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
 
   has_many :bookings, dependent: :destroy
-  has_one_attached :photo
+  has_many_attached :photo
 
   validates :make, :model, :year, :price, :description, :location, :colour, :capacity, presence: true
   validates :description, length: { minimum: 10 }

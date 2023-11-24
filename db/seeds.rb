@@ -28,6 +28,9 @@ car1 = Car.new(
   user: user
 )
 car1.photo.attach(io: File.open('app/assets/images/austin-mini.jpg'), filename: "austin-mini.jpg", content_type: "image/jpg")
+car1.photo.attach(io: File.open('app/assets/images/austin-mini-2.jpg'), filename: "austin-mini-2.jpg", content_type: "image/jpg")
+car1.photo.attach(io: File.open('app/assets/images/austin-mini-3.jpg'), filename: "austin-mini-3.jpg", content_type: "image/jpg")
+
 car1.save!
 
 puts "Created #{car1.make}"
@@ -44,6 +47,8 @@ car2 = Car.new(
   user: user
 )
 car2.photo.attach(io: File.open('app/assets/images/MG-RV8.jpg'), filename: "MG-RV8.jpg", content_type: "image/jpg")
+car2.photo.attach(io: File.open('app/assets/images/MG-RV8-2.jpg'), filename: "MG-RV-2.jpg", content_type: "image/jpg")
+car2.photo.attach(io: File.open('app/assets/images/MG-RV8-3.jpg'), filename: "MG-RV8-3.jpg", content_type: "image/jpg")
 car2.save!
 puts "Created #{car2.make}"
 
@@ -59,6 +64,8 @@ car3 = Car.new(
   user: user
 )
 car3.photo.attach(io: File.open('app/assets/images/ford-mustang.jpg'), filename: "ford-mustang.jpg", content_type: "image/jpg")
+car3.photo.attach(io: File.open('app/assets/images/ford-mustang-2.jpg'), filename: "ford-mustang-2.jpg", content_type: "image/jpg")
+car3.photo.attach(io: File.open('app/assets/images/ford-mustang-3.jpg'), filename: "ford-mustang-3.jpg", content_type: "image/jpg")
 car3.save!
 puts "Created #{car3.make}"
 
@@ -74,6 +81,8 @@ car4 = Car.new(
   user: user
 )
 car4.photo.attach(io: File.open('app/assets/images/bentley-r-type.jpg'), filename: "bentley-r-type.jpg", content_type: "image/jpg")
+car4.photo.attach(io: File.open('app/assets/images/bentley-r-type-2.jpg'), filename: "bentley-r-type-2.jpg", content_type: "image/jpg")
+car4.photo.attach(io: File.open('app/assets/images/bentley-r-type-3.jpg'), filename: "bentley-r-type-3.jpg", content_type: "image/jpg")
 car4.save!
 puts "Created #{car4.make}"
 
@@ -89,6 +98,8 @@ car5 = Car.new(
   user: user
 )
 car5.photo.attach(io: File.open('app/assets/images/fiat-panda.jpg'), filename: "fiat-panda.jpg", content_type: "image/jpg")
+car5.photo.attach(io: File.open('app/assets/images/fiat-panda-2.jpg'), filename: "fiat-panda-2.jpg", content_type: "image/jpg")
+car5.photo.attach(io: File.open('app/assets/images/fiat-panda-3.jpg'), filename: "fiat-panda-3.jpg", content_type: "image/jpg")
 car5.save!
 puts "Created #{car5.make}"
 
@@ -104,6 +115,8 @@ car6 = Car.new(
   user: user
 )
 car6.photo.attach(io: File.open('app/assets/images/jaguar-e-type.jpg'), filename: "jaguar-e-type.jpg", content_type: "image/jpg")
+car6.photo.attach(io: File.open('app/assets/images/jaguar-e-type-2.jpg'), filename: "jaguar-e-type-2.jpg", content_type: "image/jpg")
+car6.photo.attach(io: File.open('app/assets/images/jaguar-e-type-3.jpg'), filename: "jaguar-e-type-3.jpg", content_type: "image/jpg")
 car6.save!
 puts "Created #{car6.make}"
 
@@ -119,6 +132,8 @@ car7 = Car.new(
   user: user
 )
 car7.photo.attach(io: File.open('app/assets/images/mercedes-sl.jpg'), filename: "mercedes-sl.jpg", content_type: "image/jpg")
+car7.photo.attach(io: File.open('app/assets/images/mercedes-sl-2.jpg'), filename: "mercedes-sl-2.jpg", content_type: "image/jpg")
+car7.photo.attach(io: File.open('app/assets/images/mercedes-sl-3.jpg'), filename: "mercedes-sl-3.jpg", content_type: "image/jpg")
 car7.save!
 puts "Created #{car7.make}"
 
@@ -134,6 +149,8 @@ car8 = Car.new(
   user: user
 )
 car8.photo.attach(io: File.open('app/assets/images/excalibur-series-v.jpg'), filename: "excalibur-series-v.jpg", content_type: "image/jpg")
+car8.photo.attach(io: File.open('app/assets/images/excalibur-series-v-2.jpg'), filename: "excalibur-series-v-2.jpg", content_type: "image/jpg")
+car8.photo.attach(io: File.open('app/assets/images/excalibur-series-v-3.jpg'), filename: "excalibur-series-v-3.jpg", content_type: "image/jpg")
 car8.save!
 puts "Created #{car8.make}"
 
@@ -149,6 +166,8 @@ car9 = Car.new(
   user: user
 )
 car9.photo.attach(io: File.open('app/assets/images/rover-p6.jpg'), filename: "rover-p6.jpg", content_type: "image/jpg")
+car9.photo.attach(io: File.open('app/assets/images/rover-p6-2.jpg'), filename: "rover-p6-2.jpg", content_type: "image/jpg")
+car9.photo.attach(io: File.open('app/assets/images/rover-p6-3.jpg'), filename: "rover-p6-3.jpg", content_type: "image/jpg")
 car9.save!
 puts "Created #{car9.make}"
 
@@ -164,6 +183,8 @@ car10 = Car.new(
   user: user
 )
 car10.photo.attach(io: File.open('app/assets/images/bentley-mark-vi.jpg'), filename: "bentley-mark-vi.jpg", content_type: "image/jpg")
+car10.photo.attach(io: File.open('app/assets/images/bentley-mark-vi-2.jpg'), filename: "bentley-mark-vi-2.jpg", content_type: "image/jpg")
+car10.photo.attach(io: File.open('app/assets/images/bentley-mark-vi-3.jpg'), filename: "bentley-mark-vi-3.jpg", content_type: "image/jpg")
 car10.save!
 puts "Created #{car10.make}"
 

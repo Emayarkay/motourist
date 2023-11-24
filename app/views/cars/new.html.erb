@@ -1,7 +1,6 @@
 <div class="container">
-  <h1>Let A Vehicle</h1>
+  <h1 class="mt-3">Let A Vehicle</h1>
   <p>Making money from your timeless car has never been easier</p>
-  <div class="banner_home"></div>
 
   <div class="form-group">
     <%= simple_form_for @car do |f| %>
@@ -19,9 +18,10 @@
 
       <%= f.input :capacity, label: 'No. of Seats', collection: (1..6).to_a.append("7+"), prompt: "Select capacity" %>
       <%= f.input :photo, as: :file %>
-      <%= f.submit value: 'Add my listing', class: "btn btn-primary" %>
+      <%= f.submit value: 'Add my listing', class: "btn btn-primary mt-2" %>
     <% end %>
   </div>
-
-  <%= link_to "Return to Available Listings", cars_path %>
+  <div class="mt-3 mb-3">
+  <%= link_to "Return To Listings", cars_path %>
+  </div>
 </div>

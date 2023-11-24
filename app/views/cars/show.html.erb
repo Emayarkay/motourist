@@ -53,8 +53,8 @@
           <h2>You own this vehicle</h2>
           <br />
           <br />
-          <%= link_to "Edit this car listing", edit_car_path(@car) %>
-          <%= link_to "Delete this car listing", car_path(@car), data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this car listing?'} %>
+          <%= link_to "Edit this car listing", edit_car_path(@car), class: "btn btn-outline-primary" %>
+          <%= link_to "Delete this car listing", car_path(@car), data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this car listing?'}, class: "btn btn-outline-primary" %>
         <% elsif @car.user != current_user && current_user %>
         <div class="container_show_book_detail">
 

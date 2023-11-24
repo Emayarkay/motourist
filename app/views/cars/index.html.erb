@@ -24,52 +24,48 @@
         <% end %>
       </div>
 
-      <% if @cars.any? %>
       <% @cars.each do |car|%>
 
-      <%= link_to car_path(car) do %>
-        <div class="card_car">
-          <div class="card_image">
-            <% if car.photo.attached? %>
-                  <div id="carouselExample<%= car.id %>" class="carousel slide">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill, data: { car_id: car.id } %>
+        <%= link_to car_path(car) do %>
+          <div class="card_car">
+            <div class="card_image">
+              <% if car.photo.attached? %>
+                <% if car.photo.count > 1 %>
+                  <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                      <% car.photo.each do |photo_attachment| %>
+                        <div class="carousel-item active">
+                          <%= cl_image_tag photo_attachment.key, class: 'd-block w-100' %>
+                        </div>
+                      <% end %>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
                   </div>
-                  <div class="carousel-item">
-                    <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill, data: { car_id: car.id } %>
-                  </div>
-                  <div class="carousel-item">
-                    <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill, data: { car_id: car.id } %>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample<%= car.id %>" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample<%= car.id %>" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-            <% else %>
-              <%= image_tag "placeholder.png", height: 300, width: 400 %>
-            <% end %>
-          </div>
+                <% else %>
+                  <%# Display the first attached image if only one or none is available %>
+                  <%= cl_image_tag car.photo[0].key %>
+                <% end %>
+              <% else %>
+                <%= image_tag "placeholder.png", height: 300, width: 400 %>
+              <% end %>
+            </div>
 
-          <div class="card_car_details">
-            <div class="card_car_info">
-              <h1><%=car.year%></h1>
-              <br />
-              <h2> <%=car.make.titleize%> <%=car.model.titleize%> </h2>
+            <div class="card_car_details">
+              <div class="card_car_info">
+                <h1><%=car.year%></h1>
+                <br />
+                <h2> <%=car.make.titleize%> <%=car.model.titleize%> </h2>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
-
-      <% end %>
-      <% else %>
-        <em>Sorry, no cars found.</em>
+        <% end %>
       <% end %>
     </div>
     <div class="container_map">
@@ -77,16 +73,14 @@
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
     </div>
 
   </div>
 
 </div>
-  
-    </div>
+
 
   <%= javascript_include_tag 'car_image_cycling' %>
-  
+
   </body>
 </html>

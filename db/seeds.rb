@@ -30,6 +30,7 @@ car1 = Car.new(
 car1.photo.attach(io: File.open('app/assets/images/austin-mini.jpg'), filename: "austin-mini.jpg", content_type: "image/jpg")
 car1.photo.attach(io: File.open('app/assets/images/austin-mini-2.jpg'), filename: "austin-mini-2.jpg", content_type: "image/jpg")
 car1.photo.attach(io: File.open('app/assets/images/austin-mini-3.jpg'), filename: "austin-mini-3.jpg", content_type: "image/jpg")
+
 car1.save!
 
 puts "Created #{car1.make}"

@@ -75,10 +75,11 @@
 .container_profile {
   width: 100vw;
   height: auto;
-  padding: 32px;
+  background-color: $light-gray
 }
 
 .container_profile_cars {
   display: flex;
   justify-content: space-around;
+  background-color:#EEE0CB
 }

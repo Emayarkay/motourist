@@ -16,6 +16,10 @@ body{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+
+  .form-control {
+    background: white !important;
+  }
 }
 .footer{
   margin-top: auto;

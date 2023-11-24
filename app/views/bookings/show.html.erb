@@ -10,7 +10,7 @@
         <%= link_to "My bookings", profile_users_path %>
       </div>
       <div>
-        <%= cl_image_tag @booking.car.photo.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag @booking.car.photo[0].key, height: 300, width: 400, crop: :fill %>
       </div>
     </div>
     <div class="mt-5">

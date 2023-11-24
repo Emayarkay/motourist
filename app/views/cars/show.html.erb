@@ -51,6 +51,8 @@
     <div class="container_show_book">
         <% if @car.user == current_user %>
           <h2>You own this vehicle</h2>
+          <br />
+          <br />
           <%= link_to "Edit this car listing", edit_car_path(@car) %>
           <%= link_to "Delete this car listing", car_path(@car), data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this car listing?'} %>
         <% elsif @car.user != current_user && current_user %>
@@ -65,7 +67,7 @@
         <div data-controller="cost-generator" data-cost-generator-cost-value="<%= @car.price%>">
           <%= simple_form_for([@car, @booking]) do |f| %>
            <%= f.input :start_date, label: "Dates", as: :string, input_html: { data: { controller: "datepicker", action: 'change->cost-generator#updateCost' } } %>
-           <%= f.submit %>
+           <%= f.submit class: "btn btn-primary" %>
          <% end %>
           <div>
             <br />

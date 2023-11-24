@@ -1,5 +1,8 @@
 <div class="container_profile">
  <div class="banner_user_profile d-flex align-items-center justify-content-around">
+  <div>
+    <h1 class="profile-page-title"><%= current_user.first_name %>'s Garage</h1>
+  </div>
   <div class="d-flex justify-content-center">
     <%= image_tag "https://kitt.lewagon.com/placeholder/users/robbiebullough", class: "avatar-user-profile"%>
   </div>
@@ -15,8 +18,8 @@
         <h3>My Listings</h3>
         <div class="d-flex p-2 justify-content-between align-items-center">
           <% current_user.cars.each do |car| %>
-            <h5><%= link_to car.model, car_path(car), class: "text-decoration-none" %></h5>
-            <% if @user_owner == true %>
+
+            <h5><%= link_to "#{car.make} #{car.model}", car_path(car), class: "text-decoration-none" %></h5>
             <div>
               <%= link_to edit_car_path(car), class: "text-decoration-none" do %>
                <i class="fa-solid fa-pen-to-square"></i>
@@ -27,7 +30,6 @@
               <% end %>
 
             </div>
-            <% end %>
           <% end %>
         </div>
       </div>

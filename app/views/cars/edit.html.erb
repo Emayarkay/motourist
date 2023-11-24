@@ -1,4 +1,4 @@
-<div class="container-edit">
+<div class="container-edit p-5">
   <h1>Update Information</h1>
  <div class="form-group">
   <%= simple_form_for @car do |f| %>
@@ -13,6 +13,7 @@
     <%= f.submit value: 'Add my listing', class: "btn btn-primary" %>
   <% end %>
   </div>
-
+<div class ="pt-3">
   <%= link_to "Return to Available Listings", cars_path %>
+</div>
 </div>

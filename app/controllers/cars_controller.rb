@@ -27,11 +27,14 @@ class CarsController < ApplicationController
   def destroy
     @car = Car.find(params[:id])
     @car.destroy
-    redirect_to cars_path
+    redirect_to profile_users_path
   end
 
   def index
     @cars = Car.all
+    if params[:query].present?
+      @cars = Car.search_by_make_and_model(params[:query])
+    end
     @markers = @cars.geocoded.map do |car|
       {
         lat: car.latitude,

@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    dates = params[:booking][:start_date].split(' to ')
+    dates = booking_params[:start_date].split(' to ')
     @booking = Booking.new(start_date: dates[0], end_date: dates[1])
     @car = Car.find(params[:car_id])
     @booking.car = @car
@@ -19,8 +19,8 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
-    @booking.destroy
-    redirect_to car_path(@booking.car)
+    @booking.destroy!
+    redirect_to profile_users_path, status: :see_other
   end
 
   def edit
@@ -29,16 +29,18 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    if @booking.update(booking_params)
+    dates = booking_params[:start_date].split(' to ')
+    new_dates = dates[1] ? { start_date: dates[0], end_date: dates[1]} : {start_date: dates[0], end_date: dates[0] }
+    if @booking.update(new_dates)
       redirect_to @booking, notice: 'Booking was successfully updated.'
     else
-      render :edit
+      render :show, status: :unprocessable_entity
     end
   end
 
   private
 
   def booking_params
-    params.require(:bookings).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date)
   end
 end

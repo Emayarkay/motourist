@@ -54,7 +54,7 @@
   width: 100%;
   height: auto;
   display: flex;
-  padding-bottom: 32px;
+  // padding-bottom: 32px;
   border-bottom: 2px solid $sage_green;
   h1 {
     font-weight: bold;
@@ -62,21 +62,27 @@
 }
 
 .card_show_image {
-  width: 550px;
-  height: 550px;
+  height: 400px;
+  width: 400px;
   background-size: cover;
-  margin-right: 32px;
+  margin-right: 16px;
 }
 
 .show_p {
-font-family: "Pacifico";
-color: $orange;
+font-family: "Scope One";
+color: $licorice;
 font-size: 20px;
 }
 
 .card_show_details {
-  width: 800px;
+  width: auto;
   height: auto;
+  // text-align: right;
+  flex-grow: 1;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card_cars_offered, .card_cars_rented {
@@ -90,8 +96,41 @@ font-size: 20px;
   background-color: #EEE0CB;
 }
 
+.car_card_header {
+  width: 100%;
+  height: 125px;
+  h1 {
+    color: $orange;
+    margin-bottom: 16px;
+  }
+}
+
+.card_car_description_header {
+  width: 100%;
+  height: 50px;
+  overflow-wrap: break-word;
+}
+
+.car_show_details_row {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .user_profile_background_image {
   background-image: url('background-user-profile.jpg');
   background-size: cover;
   height: 100%;
 }
+
+.listings {
+  padding-left: 32px;
+}
+
+// .colour_location {
+//   p {
+//     color: $orange;
+//   }
+// }

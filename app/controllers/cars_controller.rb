@@ -47,6 +47,14 @@ class CarsController < ApplicationController
   def show
     @car = Car.find(params[:id])
     @booking = Booking.new
+    @markers = [{ lat: @car.latitude, lng: @car.longitude, info_window_html: render_to_string(partial: "info_window", locals: {car: @car}) }]
+    # @markers = @car.geocode.map do
+    #   {
+    #     lat: @car.latitude,
+    #     lng: @car.longitude,
+    #     info_window_html: render_to_string(partial: "info_window", locals: {car: @car})
+    #   }
+    # end
   end
 
   private

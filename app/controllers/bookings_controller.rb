@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
     dates = booking_params[:start_date].split(' to ')
     new_dates = dates[1] ? { start_date: dates[0], end_date: dates[1]} : {start_date: dates[0], end_date: dates[0] }
     if @booking.update(new_dates)
-      redirect_to @booking, notice: 'Booking was successfully updated.'
+      redirect_to @booking
     else
       render :show, status: :unprocessable_entity
     end

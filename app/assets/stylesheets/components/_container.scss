@@ -31,7 +31,45 @@
 .container_show {
   width: 100vw;
   height: auto;
+  padding-top: 16px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.container_card_car_show {
+  width: 100%;
+  height:45vh;
+  // border: 1px solid blue;
+  display: flex;
+  justify-content: space-between;
+  // align-items: center;
   padding: 32px;
+}
+
+.container_show_map_book {
+  width: 100%;
+  height:auto;
+  // border: 1px solid blue;
+  display: flex;
+  justify-content: space-between;
+  padding: 32px;
+}
+
+.container_show_map {
+  height: 100%;
+  width: auto;
+  // border: 1px solid red;
+}
+
+.container_show_book {
+  height: auto;
+  width: auto;
+  // border: 1px solid green;
+  flex-grow: 1;
+  padding-left: 24px;
+  h2 {
+    color: $orange;
+  }
 }
 
 .container_profile {

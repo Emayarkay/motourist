@@ -10,7 +10,7 @@
     </div>
 
     <div class="card_show_details">
-      <h1> <%=@car.make.titleize%> <%=@car.model.titleize%> <%=@car.year%> </h1>
+      <h1> <%=@car.year%> <%=@car.make.titleize%> <%=@car.model.titleize%> </h1>
       <p class="show_p">Details</p>
       <p> <%=@car.description%> </p>
       <br />
@@ -29,40 +29,38 @@
 
   </div>
 
-  <% if @car.user == @user_owner %>
-   <%= link_to "Edit this car listing", edit_car_path(@car) %>
-   <%= link_to "Delete this car listing", delete_car_path(@car) %>
-  <% end %>
 
-  <% if current_user %>
+  <% if @car.user == current_user %>
+    <div>
+      <h2>You own this vehicle</h2>
+      <%= link_to "Edit this car listing", edit_car_path(@car) %>
+      <%= link_to "Delete this car listing", car_path(@car), data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this car listing?'} %>
+    </div>
+  <% elsif @car.user != current_user && current_user %>
     <div class="container_show_book">
       <div>
         <h2>Book now!</h2>
       </div>
-      <div>
+      <div data-controller="cost-generator" data-cost-generator-cost-value="<%= @car.price%>">
         <%= simple_form_for([@car, @booking]) do |f| %>
-          <%= f.input :start_date, label: "Dates", as: :string, input_html: { data: { controller: "datepicker" } } %>
+          <%= f.input :start_date, label: "Dates", as: :string, input_html: { data: { controller: "datepicker", action: 'change->cost-generator#updateCost' } } %>
           <%= f.submit %>
-  <% end %>
+          <% end %>
+      <div>
+        <h3 data-cost-generator-target="costElement">Total cost: </h3>
+      </div>
       </div>
     </div>
-
-  <div>
-    <% if @car.user == current_user %>
-    <%= link_to "Edit this car", edit_car_path(@car) %>
-    <% end %>
-  </div>
-
-
-  <% else %>
+  <% elsif %>
     <div class="d-flex justify-content-evenly mt-5">
-    <div>
-    <h2>Please sign in to book</h2>
-    </div>
+      <div>
+        <h2>Please sign in to book</h2>
+      </div>
     <div>
   <% end %>
 
-  <%= link_to "Back", cars_path, { class: "d-flex justify-content-center my-5"} %>
+
+  <%= link_to "Back to all listings", cars_path, { class: "d-flex justify-content-center my-5"} %>
   </div>
 </div>
 

@@ -61,8 +61,10 @@
             <div class="card_car_details">
               <div class="card_car_info">
                 <h1><%=car.year%></h1>
-                <br />
+
                 <h2> <%=car.make.titleize%> <%=car.model.titleize%> </h2>
+              <p><%= car.capacity %> <i class="fa-solid fa-user" style="color:#ca6b3c"></i><br /><%= car.location %> <i class="fa-solid fa-location-dot"></i> </p>
+
               </div>
             </div>
           </div>
